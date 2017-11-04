@@ -4,13 +4,13 @@ package dlackovi2_zadaca_1.model;
  *
  * @author dlackovi2
  */
-public class Actuator implements Cloneable
+public class Actuator implements Cloneable, Device
 {
     private String name;
-    private Type type;
+    private int type;
     private String kind;
-    private int minValue;
-    private int maxValue;
+    private float minValue;
+    private float maxValue;
     private String comment;
     
     public Actuator()
@@ -18,7 +18,7 @@ public class Actuator implements Cloneable
         
     }
 
-    public Actuator(String naziv, Type tip, String vrsta, int minVrijednost, int maxVrijednost, String komentar)
+    public Actuator(String naziv, int tip, String vrsta, float minVrijednost, float maxVrijednost, String komentar)
     {
         this.name = naziv;
         this.type = tip;
@@ -38,12 +38,12 @@ public class Actuator implements Cloneable
         this.name = naziv;
     }
 
-    public Type getTip()
+    public int getTip()
     {
         return type;
     }
 
-    public void setTip(Type tip)
+    public void setTip(int tip)
     {
         this.type = tip;
     }
@@ -58,22 +58,22 @@ public class Actuator implements Cloneable
         this.kind = vrsta;
     }
 
-    public int getMinVrijednost()
+    public float getMinVrijednost()
     {
         return minValue;
     }
 
-    public void setMinVrijednost(int minVrijednost)
+    public void setMinVrijednost(float minVrijednost)
     {
         this.minValue = minVrijednost;
     }
 
-    public int getMaxVrijednost()
+    public float getMaxVrijednost()
     {
         return maxValue;
     }
 
-    public void setMaxVrijednost(int maxVrijednost)
+    public void setMaxVrijednost(float maxVrijednost)
     {
         this.maxValue = maxVrijednost;
     }

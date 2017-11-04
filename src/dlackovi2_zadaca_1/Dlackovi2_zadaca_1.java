@@ -1,5 +1,7 @@
 package dlackovi2_zadaca_1;
 
+import dlackovi2_zadaca_1.utils.FileManager;
+import dlackovi2_zadaca_1.utils.FileType;
 import dlackovi2_zadaca_1.validation.ArgumentValidator;
 
 /**
@@ -15,13 +17,13 @@ public class Dlackovi2_zadaca_1
     public static void main(String[] args)
     {
         int seed;
-        String placesFile;
-        String sensorsFile;
-        String actuatorsFile;
+        String placesFile = "";
+        String sensorsFile  = "";
+        String actuatorsFile  = "";
         String algorithm;
         int cycleDuration;
         int nCycle;
-        String outputFile;
+        String outputFile  = "";
         
         if(args.length != 8)
         {
@@ -42,5 +44,10 @@ public class Dlackovi2_zadaca_1
             ArgumentValidator validator = new ArgumentValidator(seed, placesFile, sensorsFile, actuatorsFile, algorithm, cycleDuration, nCycle, outputFile);
             validator.validate();
         } 
+        
+        FileManager fm = FileManager.getInstance();
+        fm.loadData(placesFile, FileType.PLACE);
+        fm.loadData(sensorsFile, FileType.SENSOR);
+        fm.loadData(actuatorsFile, FileType.ACTUATOR);
     }  
 }
